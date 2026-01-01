@@ -12,49 +12,75 @@
 </p>
 
 <p align="center">
-  <a href="https://certwatch.app">Website</a> •
-  <a href="https://docs.certwatch.app">Docs</a> •
-  <a href="https://certwatch.app/blog">Blog</a> •
-  <a href="https://discord.gg/ndA6jd5ReR">Discord</a> •
+  <a href="https://certwatch.app">Website</a> &bull;
+  <a href="https://docs.certwatch.app">Docs</a> &bull;
+  <a href="https://certwatch.app/roadmap">Roadmap</a> &bull;
+  <a href="https://certwatch.app/blog">Blog</a> &bull;
+  <a href="https://discord.gg/ndA6jd5ReR">Discord</a> &bull;
   <a href="https://x.com/certwatchapp">Twitter</a>
 </p>
 
 ---
 
-## 🔍 What is CertWatch?
+## What is CertWatch?
 
 CertWatch monitors your SSL/TLS certificates and alerts you before they expire — via **Slack**, **Email**, **PagerDuty**, **Microsoft Teams**, or **Webhooks**.
 
-- ✅ **Certificate Expiration Monitoring** — Get alerts at 30, 14, 7, and 1 day before expiry
-- ✅ **Chain Validation** — Detect incomplete certificate chains that break API clients
-- ✅ **Weak Crypto Detection** — Identify SHA-1, short RSA keys, and outdated TLS versions
-- ✅ **OCSP/CRL Revocation Checks** — Know if your certificate has been revoked
-- ✅ **Team Collaboration** — Role-based access for your entire organization
+| Feature | Description |
+|---------|-------------|
+| **Expiration Monitoring** | Get alerts at 30, 14, 7, and 1 day before expiry |
+| **Chain Validation** | Detect incomplete certificate chains that break API clients |
+| **Weak Crypto Detection** | Identify SHA-1, short RSA keys, and outdated TLS versions |
+| **Revocation Checks** | OCSP/CRL monitoring to know if certificates are revoked |
+| **Private Network Scanning** | Monitor internal endpoints with our open-source agent |
+| **Kubernetes Integration** | Auto-discover cert-manager certificates *(coming soon)* |
+| **Team Collaboration** | Role-based access for your entire organization |
 
 ---
 
-## 🛠️ Open Source
+## Open Source
 
 ### [cw-agent](https://github.com/certwatch-app/cw-agent)
 
-Monitor certificates on private networks and Kubernetes clusters with our open-source agent.
+<p>
+  <a href="https://github.com/certwatch-app/cw-agent/actions/workflows/ci.yml"><img src="https://github.com/certwatch-app/cw-agent/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://goreportcard.com/report/github.com/certwatch-app/cw-agent"><img src="https://goreportcard.com/badge/github.com/certwatch-app/cw-agent" alt="Go Report Card"></a>
+  <a href="https://github.com/certwatch-app/cw-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
+  <a href="https://artifacthub.io/packages/search?repo=cw-agent"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/cw-agent" alt="Artifact Hub"></a>
+</p>
+
+Monitor certificates on **private networks** and **Kubernetes clusters** with our open-source agent.
+
+**Install:**
+
 ```bash
-# Homebrew (macOS/Linux)
+# Quick install (Linux/macOS)
+curl -sSL https://certwatch.app/install.sh | bash
+
+# Homebrew
 brew install certwatch-app/tap/cw-agent
 
-# Go
-go install github.com/certwatch-app/cw-agent/cmd/cw-agent@latest
-
 # Docker
-docker pull ghcr.io/certwatch-app/cw-agent:latest
+docker run ghcr.io/certwatch-app/cw-agent:latest
+
+# Kubernetes (Helm)
+helm install cw-agent oci://ghcr.io/certwatch-app/helm-charts/cw-agent \
+  --namespace certwatch --create-namespace \
+  --set agent.name=my-cluster \
+  --set apiKey.value=cw_your_api_key
 ```
 
-[![CI](https://github.com/certwatch-app/cw-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/certwatch-app/cw-agent/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/certwatch-app/cw-agent)](https://goreportcard.com/report/github.com/certwatch-app/cw-agent)
+**Helm Charts:**
+
+| Chart | Description | Status |
+|-------|-------------|--------|
+| [cw-agent](https://github.com/certwatch-app/cw-agent/tree/main/charts/cw-agent) | Network certificate scanner | Available |
+| cw-agent-certmanager | cert-manager integration | Coming soon |
+| cw-stack | Umbrella chart (deploy one or both) | Coming soon |
 
 ---
 
-## 🧰 Free Tools
+## Free Tools
 
 No signup required — use these tools right now:
 
@@ -69,25 +95,26 @@ No signup required — use these tools right now:
 
 ---
 
-## 📚 Resources
+## Resources
 
-- **[SSL Certificate Expiration Guide](https://certwatch.app/blog/ssl-certificate-expiration-guide)** — Complete guide for DevOps teams
-- **[Fix SSL Certificate Chain Issues](https://certwatch.app/blog/fix-ssl-certificate-chain-issues)** — Troubleshooting guide for Nginx & Apache
-- **[Documentation](https://docs.certwatch.app)** — Full platform documentation
-
----
-
-## 🚀 Get Started
-
-Sign up free at **[certwatch.app](https://certwatch.app)** and start monitoring your certificates in minutes.
+| Resource | Description |
+|----------|-------------|
+| [Documentation](https://docs.certwatch.app) | Full platform documentation |
+| [Agent Guide](https://docs.certwatch.app/agent) | cw-agent setup and configuration |
+| [SSL Expiration Guide](https://certwatch.app/blog/ssl-certificate-expiration-guide) | Complete guide for DevOps teams |
+| [Fix Chain Issues](https://certwatch.app/blog/fix-ssl-certificate-chain-issues) | Troubleshooting for Nginx & Apache |
 
 ---
+
+## Get Started
+
+Sign up free at **[certwatch.app](https://certwatch.app)** — no credit card required.
 
 <p align="center">
-  <a href="https://certwatch.app">Website</a> •
-  <a href="https://docs.certwatch.app">Docs</a> •
-  <a href="https://certwatch.app/blog">Blog</a> •
-  <a href="https://discord.gg/ndA6jd5ReR">Discord</a> •
+  <a href="https://certwatch.app">Website</a> &bull;
+  <a href="https://docs.certwatch.app">Docs</a> &bull;
+  <a href="https://certwatch.app/roadmap">Roadmap</a> &bull;
+  <a href="https://certwatch.app/blog">Blog</a> &bull;
+  <a href="https://discord.gg/ndA6jd5ReR">Discord</a> &bull;
   <a href="https://x.com/certwatchapp">Twitter</a>
 </p>
-```
